@@ -1,0 +1,8 @@
+[package]
+name = "domaincolor"
+version = "0.1.0"
+authors = ["Paul Modlin <paulmodlin@vivaldi.net"]
+
+[dependencies]
+domain-coloring = { git = "https://github.com/pmodl/rust-domain-coloring", branch = "master" }
+num-complex = "*"
