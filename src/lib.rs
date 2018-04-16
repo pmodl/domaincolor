@@ -36,12 +36,11 @@ mod tests {
 }
 
 #[derive(Debug,PartialEq)]
-struct MyC64 (pub Complex64);
+pub struct MyC64 (pub Complex64);
 
 impl std::str::FromStr for MyC64 {
     type Err = ();
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        println!();
         lazy_static!{
             static ref NUM_RE: Regex = Regex::new("^[[:digit:].][[:digit:].]*").unwrap();
         }
@@ -53,7 +52,6 @@ impl std::str::FromStr for MyC64 {
 
         while s1.len() > 0 {
 
-            println!("{}", s1);
             let mut neg: bool = false;
             let mut is_im = false;
             let mut val: f64 = 1.0;
@@ -74,7 +72,6 @@ impl std::str::FromStr for MyC64 {
 
             // -- parse number --
             if let Some(cap) = NUM_RE.captures(s1) {
-                println!("match: {}", &cap[0]);
                 if cap.len() > 0 {
                     if let Ok(f) = cap[0].parse::<f64>() {
                         val = f;
@@ -111,9 +108,4 @@ impl std::str::FromStr for MyC64 {
         }
         return Ok(MyC64(ret));
     }
-}
-
-
-fn main() {
-    println!("Hello, world!");
 }

@@ -3,6 +3,12 @@ name = "domaincolor"
 version = "0.1.0"
 authors = ["Paul Modlin <paulmodlin@vivaldi.net"]
 
+[lib]
+name = "mylib"
+path = "src/lib.rs"
+
 [dependencies]
 domain-coloring = { git = "https://github.com/pmodl/rust-domain-coloring", branch = "master" }
 num-complex = "*"
+regex = "*"
+lazy_static = "*"
