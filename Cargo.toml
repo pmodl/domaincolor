@@ -12,3 +12,4 @@ domain-coloring = { git = "https://github.com/pmodl/rust-domain-coloring", branc
 num-complex = "*"
 regex = "*"
 lazy_static = "*"
+structopt = "0.2"

@@ -2,8 +2,9 @@ extern crate num_complex;
 extern crate regex;
 use num_complex::{Complex64};
 #[macro_use] extern crate lazy_static;
+#[macro_use] extern crate structopt;
+use structopt::{StructOpt,clap::AppSettings};
 use regex::Regex;
-
 
 #[cfg(test)]
 mod tests {
@@ -37,7 +38,6 @@ mod tests {
 
 #[derive(Debug,PartialEq)]
 pub struct MyC64 (pub Complex64);
-
 impl std::str::FromStr for MyC64 {
     type Err = ();
     fn from_str(s: &str) -> Result<Self, Self::Err> {
@@ -109,3 +109,34 @@ impl std::str::FromStr for MyC64 {
         return Ok(MyC64(ret));
     }
 }
+impl std::fmt::Display for MyC64 {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{} + {}i", self.0.re, self.0.im)
+    }
+}
+
+#[derive(StructOpt, Debug)]
+// https://docs.rs/clap/2/clap/enum.AppSettings.html#variant.InferSubcommands
+#[structopt(raw(setting = "AppSettings::InferSubcommands"))]
+pub enum FuncOpt {
+    // https://docs.rs/clap/2/clap/struct.App.html#method.alias
+    /// roots of a polynomial
+    #[structopt(name = "roots", alias = "r")]
+    Roots {
+        #[structopt(name = "ROOTS")]
+        roots: Vec<String>,
+    },
+    // https://docs.rs/clap/2/clap/struct.App.html#method.aliases
+    /// terms of a polynomial
+    #[structopt(name = "terms", raw(aliases = r#"&["t", "term"]"#))]
+    Terms {
+        terms: Vec<String>,
+    },
+    /// roots of unity
+    #[structopt(name = "unity", alias = "u")]
+    Unity {
+        /// use the nth roots of unity
+        n: Option<i32>
+    },
+}
+
