@@ -1,0 +1,9 @@
+[package]
+name = "dc-utils"
+version = "0.1.0"
+authors = ["xPMo <PMo_@vivaldi.net>"]
+
+[dependencies]
+num-complex = "*"
+regex = "*"
+lazy_static = "*"

@@ -103,6 +103,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "dc-utils"
+version = "0.1.0"
+dependencies = [
+ "lazy_static 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "num-complex 0.1.43 (registry+https://github.com/rust-lang/crates.io-index)",
+ "regex 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "deflate"
 version = "0.7.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -125,6 +134,7 @@ dependencies = [
 name = "domaincolor"
 version = "0.1.0"
 dependencies = [
+ "dc-utils 0.1.0",
  "domain-coloring 0.1.3 (git+https://github.com/pmodl/rust-domain-coloring)",
  "lazy_static 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "num-complex 0.1.43 (registry+https://github.com/rust-lang/crates.io-index)",

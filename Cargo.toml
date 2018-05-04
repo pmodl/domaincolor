@@ -13,3 +13,4 @@ num-complex = "*"
 regex = "*"
 lazy_static = "*"
 structopt = "0.2"
+dc-utils = { path = "dc-utils"}
