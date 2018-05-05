@@ -116,8 +116,13 @@ impl std::fmt::Display for MyC64 {
         write!(f, "{} + {}i", self.0.re, self.0.im)
     }
 }
+impl Into<Complex64> for MyC64 {
+    fn into(self) -> Complex64 {
+        self.0
+    }
+}
 
-// StructOpt requires FromStr::Err to impl Display for error mesages
+// StructOpt requires FromStr::Err to impl Display
 #[derive(Debug)]
 pub struct C64ParseError(());
 impl Error for C64ParseError {
