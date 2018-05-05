@@ -132,7 +132,7 @@ dependencies = [
 
 [[package]]
 name = "domaincolor"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "dc-utils 0.1.0",
  "domain-coloring 0.1.3 (git+https://github.com/pmodl/rust-domain-coloring)",
