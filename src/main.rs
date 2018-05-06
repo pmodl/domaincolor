@@ -26,7 +26,7 @@ fn main() {
         _ => Box::new(C64Roots(vec![])) as Box<ComplexFunction>,
     };
     if v > 1 { println!("Image details: {:?}", i) }
-    if v > 3 { println!("{:?}", f.eval_at(Complex64::new(1.0, 0.0))) }
+    if v > 3 { println!("f(1) = {:?}", f.eval_at(Complex64::new(1.0, 0.0))) }
     if v > 0 { println!("Writing to {:?}.", opt.imgfile) }
     domain_color_simple(&i, &(|z| f.eval_at(z)), &opt.imgfile);
 }

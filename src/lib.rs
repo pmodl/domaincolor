@@ -13,21 +13,14 @@ pub enum FuncOpt {
     // https://docs.rs/clap/2/clap/struct.App.html#method.alias
     /// roots of a polynomial
     #[structopt(name = "roots", alias = "r")]
-    Roots {
-        #[structopt(name = "ROOTS")]
-        roots: Vec<MyC64>,
-    },
+    Roots { roots: Vec<MyC64> },
     // https://docs.rs/clap/2/clap/struct.App.html#method.aliases
     /// terms of a polynomial
     #[structopt(name = "terms", raw(aliases = r#"&["t", "term"]"#))]
-    Terms {
-        terms: Vec<MyC64>,
-    },
+    Terms { terms: Vec<MyC64> },
     /// use the nth roots of unity
     #[structopt(name = "unity", alias = "u")]
-    Unity {
-        n: u32
-    },
+    Unity { n: u32 },
 }
 
 #[derive(StructOpt, Debug)]
